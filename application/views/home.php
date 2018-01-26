@@ -63,7 +63,7 @@
 				<div class="collapse navbar-collapse navbar-right" id="navbar">
 					<div class="top-nav">
 
-						<a href="#about" class="hover-effect scroll">
+						<a href="#login" class="hover-effect scroll">
 							<span>
 								<span>Home</span>
 								<span>Home</span>
@@ -95,10 +95,18 @@
 							</span>
 						</a>
 
-						<a href="#contact" class="hover-effect scroll">
+						<a href="<?php echo base_url(); ?>Register" class="hover-effect scroll">
 							<span>
-								<span>Contact</span>
-								<span>Contact</span>
+								<span>Register</span>
+								<span>Register</span>
+								<span></span>
+							</span>
+						</a>
+
+						<a href="#login" class="hover-effect scroll">
+							<span>
+								<span>User</span>
+								<span>User</span>
 								<span></span>
 							</span>
 						</a>
@@ -151,33 +159,18 @@
 	<!-- //Header -->
 
 	<!-- About -->
-	<div class="about" id="about">
+	<div class="about" id="login">
 		<div class="container">
 
 			<h1>LOG IN</h1>
-			<form action="" method="POST" class="container">
-			<input type="text" name="username" placeholder="username" class="form-control">
-				<input type="password" name="password" placeholder="password" class="form-control">
-				<input type="submit" name="submit" value="Login" class="btn btn-default">
-			</form>
+			
 
-			<div class="about-grids">
-				<div class="col-md-3 col-sm-3 about-grid">
-					<h4>Consequuntur</h4>
-					<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti.</p>
-				</div>
-				<div class="col-md-3 col-sm-3 about-grid">
-					<h4>Consequatur</h4>
-					<p>Aatque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident similique.</p>
-				</div>
-				<div class="col-md-3 col-sm-3 about-grid">
-					<h4>Consectetur</h4>
-					<p>Sunt in culpa qui officia deserunt mollitia animi, id est laborum dolorum fuga harum quidem rerum facilis.</p>
-				</div>
-				<div class="col-md-3 col-sm-3 about-grid">
-					<h4>Commodium</h4>
-					<p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime dolor.</p>
-				</div>
+			<div class="about-grids" name="login">
+				<form action="" method="POST" class="container">
+					<input type="text" name="username" placeholder="username" class="form-control">
+					<input type="password" name="password" placeholder="password" class="form-control">
+					<input type="submit" name="submit" value="Login" class="btn btn-default">
+				</form>
 				<div class="clearfix"></div>
 			</div>
 
@@ -686,7 +679,7 @@
 
 	<!-- Popup-Box-JavaScript -->
 	<script src="js/modernizr.custom.97074.js"></script>
-	<script src="js/jquery.chocolat.js"></script>
+	<script src="js/jquery.chocolat.js"></script> 
 	<script type="text/javascript">
 		$(function() {
 			$('.gallery-grids a').Chocolat();
@@ -740,7 +733,7 @@
 
 	<!-- //Custom-JavaScript-File-Links -->
 
-
+	
 
 </body>
 <!-- //Body -->

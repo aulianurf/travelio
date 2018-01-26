@@ -28,11 +28,34 @@ defined('BASEPATH') or exit('no direct script access');
 				if ($query) {
 						#code...
 					echo "Success";
+					redirect(base_url().'Welcome/daftar');
 				}else{
 					echo "Failed";
 				}
 			}
+		 function signin(){
+		$username =$this->input->post('username');
+		$password =$this->input->post('password');
+		$where = array('username' => $username, 
+					    'password' => md5($password)
+					);
 
+		$cek_user = $this->model->getUserByUsername($where,'user');
+
+		if($cek_user==true){
+			$dataarray=array(
+				"name"=>$username,
+				"status"=>"login"
+			);
+			$this->session->set_userdata($dataarray);
+			redirect(base_url().'Travelio/home');
+		}else
+		{ 
+			echo '<script type="text/javascript">';
+        	echo 'alert("Username Atau Password Salah!")';
+        	echo '</script>';
+		}
+	}
 			$this->load->view('vRegisterform');
 		}
 
