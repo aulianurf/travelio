@@ -420,6 +420,11 @@
      <div class="box box-success">
       <form action="<?php echo base_url()?>beranda/saveeditrute" method="post">
             <div class="box-body">
+            <div class="form-group">
+                <label>Date</label>
+                <input type="hidden" id="id" class="form-control" value="<?php echo $id;?>" name="id">
+                <input type="text" id="date" class="form-control" value="<?php echo $date;?>" name="date" required>
+              </div>
               <div class="form-group">
                 <label>Depart_at</label>
                 <input type="hidden" id="id" class="form-control" value="<?php echo $id;?>" name="id">
@@ -436,10 +441,6 @@
                <div class="form-group">
                 <label>Rute_to</label>
                 <input type="text" id="rute_to" class="form-control" value="<?php echo $rute_to;?>" name="rute_to" required>
-              </div>
-               <div class="form-group">
-                <label>Transit_place</label>
-                <input type="text" id="transit_place" class="form-control" value="<?php echo $transit_place;?>" name="transit_place" required>
               </div>
                <div class="form-group">
                 <label>Price</label>

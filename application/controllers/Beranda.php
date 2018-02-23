@@ -22,6 +22,7 @@ class Beranda extends CI_Controller
 		$rute = $this->user_m->getrute("where id = '$kode'")->result_array();
 		$data = array(
 			'id' => $rute[0]['id'],
+			'date' => $rute[0]['date'],
 			'depart_at' => $rute[0]['depart_at'],
 			'arrival_at' => $rute[0]['arrival_at'],
 			'rute_from' => $rute[0]['rute_from'],
@@ -52,6 +53,68 @@ class Beranda extends CI_Controller
 			$this->session->set_flashdata("alert", "<div class='alert alert-danger'><strong>Simpan data GAGAL di lakukan</strong></div>");
 			header('location:'.base_url().'beranda/tambahuser');
 		}
+	}
+	public function tambahrute(){
+		$this->cek_sessionfalse();
+		$this->load->view('rute/tambahrute');
+	}
+	function saverute(){
+		$this->cek_sessionfalse();
+		$data = array(
+			'date' => $this->input->post('date'),
+			'depart_at' => $this->input->post('depart_at'),
+			'arrival_at' =>$this->input->post('arrival_at'),
+			'rute_from' => $this->input->post('rute_from'),
+			'rute_to' => $this->input->post('rute_to'),
+			'transit_place' => $this->input->post('transit_place'),
+			'price' => $this->input->post('price'),
+			'transportation_id' => $this->input->post('transportation_id'),
+			);
+		$result = $this->user_m->Simpan('rute', $data);
+		if($result == 1){
+			$this->session->set_flashdata("sukses", "<div class='alert alert-success'><strong>Simpan data BERHASIL dilakukan</strong></div>");
+			header('location:'.base_url().'beranda');
+		}else{
+			$this->session->set_flashdata("alert", "<div class='alert alert-danger'><strong>Simpan data GAGAL di lakukan</strong></div>");
+			header('location:'.base_url().'beranda/tambahrute');
+		}
+	}
+	public function saveeditrute()
+	{
+		$this->cek_sessionfalse();
+		$date = $this->input->post('date');
+		$depart_at = $this->input->post('depart_at');
+		$arrival_at = $this->input->post('arrival_at');
+		$rute_from = $this->input->post('rute_from');
+		$rute_to = $this->input->post('rute_to');
+		$transit_place = $this->input->post('transit_place');
+		$price = $this->input->post('price');
+		$transportation_id = $this->input->post('transportation_id');
+		$data = array(
+			'date' => $date,
+			'depart_at' => $depart_at,
+			'arrival_at' => $arrival_at,
+			'rute_from' => $rute_from,
+			'rute_to' => $rute_to,
+			'transit_place' => $transit_place,
+			'price' => $price,
+			'transportation_id' => $transportation_id,
+		);
+		$where = array(
+			'id' => $id
+		);
+		$simpan = $this->user_m->update_data($where,$data,'rute');
+		if ($simpan==1){
+			$this->session->set_flashdata('messages', '<div class="alert alert-success">Data Telah Ter<strong>EDIT</strong></div>');
+		}else{
+			$this->session->set_flashdata('messages', '<div class="alert alert-danger">Maaf Anda <strong>GAGAL</strong> Mengedit</div>');
+		}
+		redirect(base_url().'beranda');
+	}
+	public function hapusrute($kode = 1){
+		$this->cek_sessionfalse();
+		$result = $this->user_m->Hapus('rute', array('id' => $kode));
+		header('location:'.base_url().'beranda');
 	}
 	public function hapususer($kode = 1){
 		$this->cek_sessionfalse();

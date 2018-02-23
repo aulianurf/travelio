@@ -3,21 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Travelio | Dashboard</title>
+  <title>AdminLTE 2 | Blank Page</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
-
-       folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/dist/css/skins/_all-skins.min.css">
-
-    <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/bower_components/Ionicons/css/ionicons.min.css">
-  <!-- DataTables -->
-  <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -42,9 +36,9 @@
     <!-- Logo -->
     <a href="../../index2.html" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>T</b>VO</span>
+      <span class="logo-mini"><b>A</b>LT</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Travelio</b></span>
+      <span class="logo-lg"><b>Admin</b>LTE</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -145,7 +139,7 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="<?php echo base_url();?>assets/admin/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Aulia Nur Fitriana</span>
+              <span class="hidden-xs">Alexander Pierce</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -153,8 +147,8 @@
                 <img src="<?php echo base_url();?>assets/admin/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Aulia Nur Fitriana - Web Developer
-                  <small>2k18</small>
+                  Alexander Pierce - Web Developer
+                  <small>Member since Nov. 2012</small>
                 </p>
               </li>
               <!-- Menu Body -->
@@ -178,7 +172,7 @@
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="<?php echo base_url(); ?>Beranda/logout" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
@@ -204,7 +198,7 @@
           <img src="<?php echo base_url();?>assets/admin/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Aulia Nur Fitriana</p>
+          <p>Alexander Pierce</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -220,22 +214,22 @@
       </form>
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
-       <ul class="sidebar-menu" data-widget="tree">
+      <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li>
-          <a href="<?php echo base_url(); ?>beranda">
+        <li class="active">
+          <a href="../widgets.html">
             <i class="fa fa-user"></i> <span>Data User</span>
             <span class="pull-right-container">
-            </span>
-          </a>
-          </li>
-          <li class="active">
-          <a href="<?php echo base_url(); ?>beranda/rute">
-            <i class="fa fa-road"></i> <span>Rute</span>
-            <span class="pull-right-container">
+              <small class="label pull-right bg-green">2</small>
             </span>
           </a>
         </li>
+ 
+        <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
+        <li class="header">LABELS</li>
+        <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
+        <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
+        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -260,65 +254,50 @@
     <!-- Main content -->
     <section class="content container-fluid">
     <div class="row">
-     <div class="col-xs-12">
-       <div class="box">
-            <div class="box-header">
-              <a href="<?php echo base_url();?>beranda/tambahrute" class="btn btn-primary"><i class="fa fa-plus"></i> Tambah Rute</a>
-            </div>
-            <!-- /.box-header -->
+    <div class="col-md-6">
+     <div class="box box-success">
+      <form action="<?php echo base_url()?>beranda/saverute" method="post">
             <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th>No.</th>
-                  <th>Date</th>
-                  <th>Waktu Berangkat</th>
-                  <th>Waktu Datang</th>
-                  <th>Keberangkatan</th>
-                  <th>Tujuan</th>
-                  <th>Harga</th>
-                  <th>id pesawat</th>
-                  <th>Aksi</th>
-                </tr>
-                </thead>
-                <tbody>
-                  <?php $no=0; foreach($rute as $u) { $no++ ?>
-                <tr>
-                  <td><?php echo $no; ?></td>
-                  <td><?php echo $u->date; ?></td>
-                  <td><?php echo $u->depart_at; ?></td>
-                  <td><?php echo $u->arrival_at; ?></td>
-                  <td><?php echo $u->rute_from; ?></td>
-                  <td><?php echo $u->rute_to; ?></td>
-                  <td><?php echo $u->price; ?></td>
-                  <td><?php echo $u->transportation_id; ?></td>
-                  <td>
-                      <a class="btn btn-warning btn-sm" href="<?php echo base_url(); ?>beranda/editrute/<?php echo  $u->id; ?>"><i class="fa fa-pencil"></i></a>
-                      <a onclick="return confirm('Hapus data??');" class="btn btn-danger btn-sm" href="<?php echo base_url(); ?>beranda/hapususer/<?php echo  $u->id;?>"><i class="fa fa-trash"></i></a>
-                  </td>
-                </tr>
-                <?php } ?>
-                </tbody>
-                <tfoot>
-                <tr>
-                  <th>No.</th>
-                  <th>Tanggal</th>
-                  <th>Waktu Berangkat</th>
-                  <th>Waktu Datang</th>
-                  <th>Keberangkatan</th>
-                  <th>Tujuan</th>
-                  <th>Harga</th>
-                  <th>id pesawat</th>
-                  <th>Aksi</th>     
-                </tr>
-                </tfoot>
-              </table>
+            <div class="form-group">
+                <label>Tanggal</label>
+                <input type="text" id="date" class="form-control" name="date" required>
+              </div
+              <div class="form-group">
+                <label>Waktu Keberangkatan</label>
+                <input type="text" id="depart_at" class="form-control" name="depart_at" required>
+              </div>
+              <div class="form-group">
+                <label>Waktu Kedatangan</label>
+                <input type="text" id="arrival_at" class="form-control" name="arrival_at" required>
+              </div>
+              <div class="form-group">
+                <label>Keberangkatan</label>
+                <input type="text" id="rute_from" class="form-control" name="rute_from" required>
+              </div>
+              <div class="form-group">
+                <label>Tujuan</label>
+                <input type="text" id="rute_to" class="form-control" name="rute_to" required>
+              </div>
+              <div class="form-group">
+                <label>Harga</label> 
+                <input type="text" id="price" class="form-control" name="price" required>
+              </div>
+              <div class="form-group">
+                <label>id pesawat</label>
+                <input type="text" id="transportation_id" class="form-control" name="transportation_id" required>
+              </div>
+              <div class="form-group">
+                <input type="submit" name="Simpan" value="Simpan" class="btn btn-primary">
+                <a href="<?php echo base_url();?>beranda" class="btn btn-primary">Kembali</a>
+              </div>
+            </form>
             </div>
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
-     </div> 
+          </div>
     </div>
+
     </section>
     <!-- /.content -->
   </div>
@@ -541,21 +520,6 @@
 <script src="<?php echo base_url();?>assets/admin/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url();?>assets/admin/dist/js/demo.js"></script>
-<script src="<?php echo base_url();?>assets/admin/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="<?php echo base_url();?>assets/admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-<script>
-  $(function () {
-    $('#example1').DataTable()
-    $('#example2').DataTable({
-      'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false
-    })
-  })
-</script>
 <script>
   $(document).ready(function () {
     $('.sidebar-menu').tree()

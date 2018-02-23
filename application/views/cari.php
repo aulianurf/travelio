@@ -60,7 +60,6 @@
 	<link rel="stylesheet" href="<?php echo URL_ASSETS;?>front/css/cs-skin-border.css">
 	
 	<link rel="stylesheet" href="<?php echo URL_ASSETS;?>front/css/style.css">
-	<link rel="stylesheet" href="<?php echo URL_ASSETS;?>front/css/styletambahan.css">
 
 
 	<!-- Modernizr JS -->
@@ -71,7 +70,7 @@
 	<![endif]-->
 
 	</head>
-	<body>
+	<body class="hold-transition cari-page"  style="background-image: url(<?php echo URL_ASSETS;?>images/a3.jpg); background-size:cover;">
 		<div id="fh5co-wrapper">
 		<div id="fh5co-page">
 
@@ -95,87 +94,39 @@
 		<!-- end:header-top -->
 	
 		<div class="fh5co-hero">
-			<div class="fh5co-cover" data-stellar-background-ratio="0.5" style="background-image: url(<?php echo URL_ASSETS;?>images/a2.jpg);">
-				<div class="desc">
-					<div class="container">
-						<div class="row">
-						
-							<div class="col-sm-5 col-md-5">
-								<div class="tabulation animate-box">
-
-								  <!-- Nav tabs -->
-								   <ul class="nav nav-tabs" role="tablist">
-								      <li role="presentation" class="active">
-								      	<a href="#flights" aria-controls="flights" role="tab" data-toggle="tab">Penerbangan</a>
-								      </li>
-								   </ul>
-
-								   <!-- Tab panes -->
-									<div class="tab-content">
-									<form action="<?php echo base_url('travelio/cari_rute') ?>" method="get">
-									 <div role="tabpanel" class="tab-pane active" id="flights">
-										<div class="row">
-											<div class="col-xxs-12 col-xs-6 mt">
-												<div class="input-field">
-													<label for="from">From:</label>
-													<select class="cs-select cs-skin-border" name="rute_from">
-														<option>Jakarta</option>
-														<option>Yogyakarta</option>
-														<option>Bandung(Husein Sastranegara</option>
-														<option>Surabaya</option>
-														<option>Semarang</option>
-														<option>Bali</option>
-													</select>
-													
-												</div>
-											</div>
-											<div class="col-xxs-12 col-xs-6 mt">
-												<div class="input-field">
-													<label for="from">To:</label>
-													<select class="cs-select cs-skin-border" name="rute_to">
-														<option>Bali</option>
-														<option>Jakarta</option>
-														<option>Kalimantan</option>
-														<option>Lombok</option>
-														<option>Semarang(Ahmad Yani)</option>
-														<option>Balikpapan</option>
-														<option>padang</option>
-														<option>Aceh</option>
-													</select>
-												</div>
-											</div>
-											<div class="col-xxs-12 col-xs-6 mt alternate">
-												<div class="input-field">
-													<label for="date-start">Date:</label>
-													<input type="text" class="form-control" id="date-start" placeholder="mm/dd/yyyy"/>
-												</div>
-											</div>
-											<div class="col-xxs-12 col-xs-6 mt">
-												<section>
-													<label for="class">Jumlah:</label>
-													<select class="cs-select cs-skin-border">
-														<option value="" disabled selected>1</option>
-														<option value="1">1</option>
-														<option value="2">2</option>
-														<option value="3">3</option>
-														<option value="4">4</option>
-													</select>
-												</section>
-											</div>
-											<div class="col-xs-12">
-												<input type="submit" class="btn btn-primary btn-block" value="Cari Penerbangan">
-											</div>
-										</div>
-									 </div>
-									 </form>
-									</div>
-
-								</div>
-							</div>
-								<div class="col-md-7"></div>
-						</div>
-					</div>
-				</div>
+			<div class="container">
+				<table id="table_id" class="table table-bordered table-striped table-hover">
+				<thead>
+				<tr>
+					<th>Airline</th>
+					<th>Berangkat</th>
+					<th>Kedatangan</th>
+					<th>Dari</th>
+					<th>ke</th>
+					<th>Harga</th>
+					<th>Aksi</th>
+				</tr>
+				</thead>
+				<!-- Script menampilkan hasil pencarian -->
+				<tbody>
+					<?php
+					foreach ($rute->result() as $rute) 
+						{?>
+						<tr>
+							<td><?php echo $rute->transportation_id ?></td>
+							<td><?php echo $rute->depart_at ?></td>
+							<td><?php echo $rute->arrival_at ?></td>
+							<td><?php echo $rute->rute_from ?></td>
+							<td><?php echo $rute->rute_to ?></td>
+							<td><?php echo $rute->price ?></td>
+							<td>
+								<a href="<?php echo base_url();?>welcome/pesan/<?php echo  $rute->id; ?>" class="btn btn-info" onclick="pesan(<?php echo $rute->id;?>)">pesan</a>
+								</td>
+							</tr>
+						<?php } ?>
+					</tbody>
+				</table>
+				</table>
 			</div>
 
 		</div>
